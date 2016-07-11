@@ -2,6 +2,9 @@
 
 FIFO=led.fifo
 
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+cd $DIR
+
 case $1 in
     ("BLACK")
         echo "000" > $FIFO ;;
