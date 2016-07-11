@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#import mraa
+import mraa
 
 import sys
 import os
@@ -14,6 +14,10 @@ def cleanup():
         os.unlink(FIFO);
     except:
         pass;
+
+LED_R = None
+LED_G = None
+LED_B = None
 
 # Setup the GPIOs for output
 def setup_led():
@@ -43,6 +47,7 @@ def main():
         main();
         return;
 
+    print("Daemon started!");
     # Keep going forever
     while True:
         # Open the fifo and read out all the lines
@@ -83,18 +88,18 @@ def main():
                     continue;
 
                 # Switch led state
-                print("Setting RGB Led!");
-                print("RED:\t" + str(red));
-                print("GREEN:\t" + str(green));
-                print("BLUE:\t" + str(blue));
+                #print("Setting RGB Led!");
+                #print("RED:\t" + str(red));
+                #print("GREEN:\t" + str(green));
+                #print("BLUE:\t" + str(blue));
 
                 switch_led(red, green, blue);
 
 # Setup hardware leds
-#setup_led();
+setup_led();
 
 # Turn on red
-#switch_led(1,0,0);
+switch_led(1,0,0);
 
 # Run main loop
 main();
