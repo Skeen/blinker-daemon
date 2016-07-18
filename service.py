@@ -98,8 +98,8 @@ def main():
 # Setup hardware leds
 setup_led();
 
-# Turn on white
-switch_led(1,1,1);
+# Turn on blue
+switch_led(0,0,1);
 
 # Run main loop
 main();
